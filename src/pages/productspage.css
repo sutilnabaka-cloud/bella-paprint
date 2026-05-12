@@ -1,0 +1,174 @@
+.products-page {
+    min-height: 100vh;
+    background: #FAFAFA;
+}
+
+/* HERO */
+
+.products-hero {
+    position: relative;
+
+    padding: 70px 8%;
+
+    background:
+        linear-gradient(rgba(255,255,255,0.90),
+        rgba(255,255,255,0.90)),
+        url('/homebackground.png');
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 0 0 40px 40px;
+
+    overflow: hidden;
+}
+
+.products-hero-content {
+    max-width: 800px;
+}
+
+.products-badge {
+    display: inline-block;
+
+    background: #FFEBEE;
+    color: #E53935;
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+.products-hero h1 {
+    font-size: 56px;
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+    color: #222;
+}
+
+.products-hero p {
+    font-size: 18px;
+    line-height: 1.8;
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+    max-width: 650px;
+}
+
+.products-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* MAIN CONTENT */
+
+.products-content {
+    padding: 50px 8%;
+}
+
+/* FILTER BAR */
+
+.filters-bar {
+    background: white;
+
+    padding: 20px 25px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.05);
+
+    margin-bottom: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+    flex-wrap: wrap;
+
+    position: sticky;
+    top: 90px;
+    z-index: 100;
+}
+
+.filters-left {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    flex: 1;
+}
+
+.filters-left select {
+    min-width: 220px;
+
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid #ddd;
+
+    background: #FAFAFA;
+
+    font-size: 14px;
+}
+
+.products-count {
+    color: #666;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* PRODUCTS GRID */
+
+.products-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(240px,1fr));
+
+    gap: 25px;
+
+    margin-top: 10px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .products-hero {
+        text-align: center;
+        padding: 60px 6%;
+    }
+
+    .products-hero h1 {
+        font-size: 42px;
+    }
+
+    .products-buttons {
+        justify-content: center;
+    }
+
+    .filters-bar {
+        position: static;
+    }
+
+    .filters-left {
+        width: 100%;
+    }
+
+    .filters-left select {
+        width: 100%;
+    }
+
+}

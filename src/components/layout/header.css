@@ -1,0 +1,160 @@
+.site-header {
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    background: rgba(255,255,255,0.92);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid #eee;
+
+    box-shadow:
+        0 2px 12px rgba(0,0,0,0.04);
+}
+
+.header-container {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 18px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+/* LOGO */
+
+.header-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 16px;
+
+    background: #FFEBEE;
+    color: #E53935;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+}
+
+.header-logo h2 {
+    margin: 0;
+
+    color: #E53935;
+
+    font-size: 24px;
+}
+
+.header-logo p {
+    margin: 2px 0 0;
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+/* NAV */
+
+.header-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.header-nav a {
+    text-decoration: none;
+
+    color: #444;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.header-nav a:hover {
+    color: #E53935;
+}
+
+/* CART BUTTON */
+
+.cart-button {
+    background: #E53935;
+    color: white;
+
+    border: none;
+
+    padding: 14px 20px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 10px 24px rgba(229,57,53,0.25);
+}
+
+.cart-button:hover {
+    background: #C62828;
+
+    transform: translateY(-2px);
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .header-container {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header-nav {
+        width: 100%;
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header-logo {
+        flex-direction: column;
+    }
+
+    .cart-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+}

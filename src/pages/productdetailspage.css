@@ -1,0 +1,159 @@
+.details-page {
+    min-height: 100vh;
+    background: #FAFAFA;
+}
+
+/* HERO */
+
+.details-hero {
+    padding: 70px 8%;
+
+    background:
+        linear-gradient(rgba(255,255,255,0.92),
+        rgba(255,255,255,0.92)),
+        url('/homebackground.png');
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 0 0 40px 40px;
+}
+
+.details-hero-content {
+    max-width: 750px;
+}
+
+.details-badge {
+    display: inline-block;
+
+    background: #FFEBEE;
+    color: #E53935;
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+.details-hero h1 {
+    font-size: 56px;
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+    color: #222;
+}
+
+.details-hero p {
+    font-size: 18px;
+    line-height: 1.8;
+
+    color: #666;
+}
+
+/* CONTAINER */
+
+.details-container {
+    padding: 50px 8%;
+}
+
+/* BACK BUTTON */
+
+.back-button-wrapper {
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background: white;
+
+    border: 1px solid #eee;
+
+    padding: 14px 22px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #E53935;
+    color: white;
+}
+
+/* PRODUCT LAYOUT */
+
+.product-layout {
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 1fr;
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+/* CARDS */
+
+.product-gallery-card,
+.product-info-card {
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,0.05);
+}
+
+/* SECTIONS */
+
+.details-section {
+    margin-top: 60px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .product-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .details-hero {
+        text-align: center;
+        padding: 60px 6%;
+    }
+
+    .details-hero h1 {
+        font-size: 42px;
+    }
+
+    .details-container {
+        padding: 40px 6%;
+    }
+
+}
