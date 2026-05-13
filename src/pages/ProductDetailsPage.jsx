@@ -53,12 +53,16 @@ export default function ProductDetailsPage({
 
   return (
     <div style={{ background: "#FAFAFA", minHeight: "100vh" }}> {/* 🟡 UPDATED */}
-      
+
       {/* 🔴 NEW HEADER */}
-      <Header goToCart={goToCart} cartCount={cartCount} />
+      <Header
+        goToCart={goToCart}
+        cartCount={cartCount}
+        showNav={false}
+      />
 
       <div style={{ padding: "20px" }}>
-        
+
         {/* 🟡 UPDATED NAV (cleaner spacing) */}
         <div style={{ marginBottom: "20px" }}>
           <button onClick={goToProducts}>⬅ Back</button>

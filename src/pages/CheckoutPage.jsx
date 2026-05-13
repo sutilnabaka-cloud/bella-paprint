@@ -16,6 +16,7 @@ import "./checkoutpage.css";
 
 export default function CheckoutPage({
   goToHome,
+  goToCart,
   goToSuccess,
 }) {
 
@@ -52,8 +53,8 @@ export default function CheckoutPage({
             {cartValidation.message}
           </h2>
 
-          <Button onClick={goToHome}>
-            Back to Home
+          <Button onClick={goToCart}>
+            Upload Your Design
           </Button>
 
         </div>
@@ -197,14 +198,14 @@ export default function CheckoutPage({
             !form.email ||
             !form.address) && (
 
-            <div className="checkout-warning">
+              <div className="checkout-warning">
 
-              To give you the best shopping experience, please complete all required
-              information before checkout.
+                To give you the best shopping experience, please complete all required
+                information before checkout.
 
-            </div>
+              </div>
 
-          )}
+            )}
 
         </div>
 

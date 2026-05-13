@@ -1,14 +1,28 @@
 import { useState, useContext } from "react";
 
-import CategoryFilter from "../components/filters/CategoryFilter";
-import PriceFilter from "../components/filters/PriceFilter";
-import ProductCard from "../components/ProductCard";
+import CategoryFilter
+  from "../components/filters/CategoryFilter";
 
-import { CartContext } from "../context/CartContext";
-import { validateCartAccess } from "../utils/cartValidation";
-import { useFilteredProducts } from "../hooks/useFilteredProducts";
+import PriceFilter
+  from "../components/filters/PriceFilter";
 
-import Button from "../components/ui/Button";
+import ProductCard
+  from "../components/ProductCard";
+
+import PromoPopup
+  from "../components/PromoPopup";
+
+import { CartContext }
+  from "../context/CartContext";
+
+import { validateCartAccess }
+  from "../utils/cartValidation";
+
+import { useFilteredProducts }
+  from "../hooks/useFilteredProducts";
+
+import Button
+  from "../components/ui/Button";
 
 import "./productspage.css";
 
@@ -18,17 +32,36 @@ export default function ProductsPage({
   goToProductDetails,
 }) {
 
-  const { addToCart, cart } = useContext(CartContext);
+  const { addToCart, cart }
+    = useContext(CartContext);
 
-  const [category, setCategory] = useState("");
-  const [priceRange, setPriceRange] = useState("");
+  /* FILTER STATES */
+  const [category, setCategory]
+    = useState("");
 
+  const [priceRange, setPriceRange]
+    = useState("");
+
+  /* POPUP STATE */
+  const [showPopup, setShowPopup]
+    = useState(false);
+
+  /* FILTERED PRODUCTS */
   const productsToShow =
-    useFilteredProducts(category, priceRange);
+    useFilteredProducts(
+      category,
+      priceRange
+    );
 
   return (
 
     <div className="products-page">
+
+      {/* PROMO POPUP */}
+      <PromoPopup
+        isOpen={showPopup}
+        onClose={() => setShowPopup(false)}
+      />
 
       {/* HERO */}
       <section className="products-hero">
@@ -44,25 +77,31 @@ export default function ProductsPage({
           </h1>
 
           <p>
-            Discover high-quality printing services,
-            customized products, souvenirs,
-            stickers, invitations, and more.
+            Discover high-quality printing
+            services, customized products,
+            souvenirs, stickers,
+            invitations, and more.
           </p>
 
           <div className="products-buttons">
 
+            {/* HOME BUTTON */}
             <Button onClick={goToHome}>
               🏠 Home
             </Button>
 
+            {/* CART BUTTON */}
             <Button
               onClick={() => {
 
                 const result =
                   validateCartAccess(cart);
 
+                /* REPLACED ALERT */
                 if (!result.isValid) {
-                  alert(result.message);
+
+                  setShowPopup(true);
+
                   return;
                 }
 
@@ -101,7 +140,9 @@ export default function ProductsPage({
 
           <div className="products-count">
 
-            {productsToShow.length} Products Found
+            {productsToShow.length}
+            {" "}
+            Products Found
 
           </div>
 
@@ -114,11 +155,15 @@ export default function ProductsPage({
 
             <ProductCard
               key={product.id}
+
               product={product}
+
               addToCart={addToCart}
 
               onView={(product) => {
+
                 goToProductDetails(product);
+
               }}
             />
 

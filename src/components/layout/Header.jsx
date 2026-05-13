@@ -1,3 +1,5 @@
+import { theme } from "../../theme";
+
 import "./header.css";
 
 export default function Header({
@@ -5,9 +7,7 @@ export default function Header({
   goToCart,
   cartCount,
 
-  goToHome,
-  goToProducts,
-  onContactClick,
+  showNav = true, // ✅ NEW
 
 }) {
 
@@ -18,10 +18,7 @@ export default function Header({
       <div className="header-container">
 
         {/* LOGO */}
-        <div
-          className="header-logo"
-          onClick={goToHome}
-        >
+        <div className="header-logo">
 
           <span className="logo-icon">
             🖨️
@@ -41,31 +38,24 @@ export default function Header({
 
         </div>
 
-        {/* NAVIGATION */}
-        <nav className="header-nav">
+        {/* ✅ ONLY SHOW NAV WHEN ENABLED */}
+        {showNav && (
+          <nav className="header-nav">
 
-          <button
-            className="nav-btn"
-            onClick={goToHome}
-          >
-            Home
-          </button>
+            <a href="#home">
+              Home
+            </a>
 
-          <button
-            className="nav-btn"
-            onClick={goToProducts}
-          >
-            Products
-          </button>
+            <a href="#products">
+              Products
+            </a>
 
-          <button
-            className="nav-btn"
-            onClick={onContactClick}
-          >
-            Contact
-          </button>
+            <a href="#contact">
+              Contact
+            </a>
 
-        </nav>
+          </nav>
+        )}
 
         {/* CART */}
         <button

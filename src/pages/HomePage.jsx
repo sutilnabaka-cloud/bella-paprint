@@ -90,7 +90,7 @@ export default function HomePage({
               className="shop-btn"
               onClick={goToProducts}
             >
-              🛍 Shop Now
+              🛍 Shop Now!
             </button>
 
           </div>

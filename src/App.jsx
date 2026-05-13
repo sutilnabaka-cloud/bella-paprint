@@ -107,29 +107,29 @@ function App() {
       {page === "product"
         && selectedProduct && (
 
-        <ProductDetailsPage
+          <ProductDetailsPage
 
-          product={selectedProduct}
+            product={selectedProduct}
 
-          goToProducts={
-            goToProducts
-          }
+            goToProducts={
+              goToProducts
+            }
 
-          goToCart={
-            goToCart
-          }
+            goToCart={
+              goToCart
+            }
 
-          goToProductDetails={(product) => {
+            goToProductDetails={(product) => {
 
-            setSelectedProduct(product);
+              setSelectedProduct(product);
 
-            setPage("product");
+              setPage("product");
 
-          }}
+            }}
 
-        />
+          />
 
-      )}
+        )}
 
       {/* CART PAGE */}
       {page === "cart" && (
@@ -152,19 +152,12 @@ function App() {
       {page === "checkout" && (
 
         <CheckoutPage
-
-          goToHome={
-            goToHome
-          }
-
+          goToHome={() => setPage("home")}
+          goToCart={() => setPage("cart")}
           goToSuccess={(orderData) => {
-
             setOrder(orderData);
-
             setPage("success");
-
           }}
-
         />
 
       )}
