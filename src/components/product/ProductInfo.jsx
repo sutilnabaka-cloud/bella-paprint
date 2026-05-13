@@ -19,7 +19,7 @@ export default function ProductInfo({
 
   return (
     <Card> {/* 🔴 NEW wrapper */}
-      
+
       <h2 style={{ marginBottom: "5px" }}>{product.name}</h2> {/* 🟡 UPDATED */}
 
       {/* ⭐ Rating */}
@@ -64,9 +64,15 @@ export default function ProductInfo({
       </div>
 
       {/* Description */}
-      <div style={{ marginTop: "10px" }}>
-        <h4>Description</h4>
-        <p>{product.description || "No description available."}</p>
+      <div
+        style={{
+          marginTop: "15px",
+          color: "#555",
+          lineHeight: "1.8",
+          whiteSpace: "pre-line",
+        }}
+      >
+        {product.description}
       </div>
 
       {/* Total */}

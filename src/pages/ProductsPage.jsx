@@ -32,6 +32,7 @@ export default function ProductsPage({
   goToProductDetails,
 }) {
 
+  
   const { addToCart, cart }
     = useContext(CartContext);
 

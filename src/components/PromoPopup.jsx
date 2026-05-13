@@ -22,9 +22,9 @@ export default function PromoPopup({
         </h2>
 
         <p>
-          Please support our small business 💖
+          Bili na po kayu para sa grade namin. 💖
           <br />
-          Your order helps us a lot.
+          Your order, our diploma.
         </p>
 
         <button

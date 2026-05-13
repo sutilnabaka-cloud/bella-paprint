@@ -77,7 +77,7 @@ export default function CartPage({
               <h3>Your cart is empty.</h3>
 
               <p>
-                Add products to continue shopping.
+                Add products to continue shopping and help us graduate.
               </p>
 
             </div>
