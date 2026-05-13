@@ -19,7 +19,7 @@ export function validateCheckout(cart) {
     return {
       isValid: false,
       message:
-        "Please upload or paste a design for all items before checkout.",
+        "Please upload or paste a design for all items before checkout. Gusto na namin maka-graduate! 🙏",
     };
   }
 
