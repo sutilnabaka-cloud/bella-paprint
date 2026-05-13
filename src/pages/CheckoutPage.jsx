@@ -12,6 +12,8 @@ import { validateCheckout } from "../utils/checkoutValidation";
 
 import Button from "../components/ui/Button";
 
+import CheckoutPopup from "../components/CheckoutPopup";
+
 import "./checkoutpage.css";
 
 export default function CheckoutPage({
@@ -19,6 +21,9 @@ export default function CheckoutPage({
   goToCart,
   goToSuccess,
 }) {
+
+  const [popupMessage, setPopupMessage] =
+    useState("");
 
   const { cart, resetCart } =
     useContext(CartContext);
@@ -77,7 +82,11 @@ export default function CheckoutPage({
   const handleOrder = () => {
 
     if (!cart.length) {
-      alert("Your cart is empty.");
+
+      setPopupMessage(
+        "Your cart is empty."
+      );
+
       return;
     }
 
@@ -85,9 +94,11 @@ export default function CheckoutPage({
       cart.some(item => !item.design);
 
     if (missingDesign) {
-      alert(
+
+      setPopupMessage(
         "Please upload or paste a design for all items."
       );
+
       return;
     }
 
@@ -97,16 +108,20 @@ export default function CheckoutPage({
       !form.address ||
       !form.payment
     ) {
-      alert(
+
+      setPopupMessage(
         "Please fill in all required fields."
       );
+
       return;
     }
 
     if (!form.email.includes("@")) {
-      alert(
+
+      setPopupMessage(
         "Please enter a valid email."
       );
+
       return;
     }
 
@@ -198,14 +213,15 @@ export default function CheckoutPage({
             !form.email ||
             !form.address) && (
 
-              <div className="checkout-warning">
+            <div className="checkout-warning">
 
-                To give you the best shopping experience, please complete all required
-                information before checkout.
+              To give you the best shopping experience,
+              please complete all required information
+              before checkout.
 
-              </div>
+            </div>
 
-            )}
+          )}
 
         </div>
 
@@ -242,6 +258,16 @@ export default function CheckoutPage({
         </div>
 
       </section>
+
+      {/* POPUP */}
+      {popupMessage && (
+
+        <CheckoutPopup
+          message={popupMessage}
+          onClose={() => setPopupMessage("")}
+        />
+
+      )}
 
     </div>
   );
