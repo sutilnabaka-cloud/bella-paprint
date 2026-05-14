@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { CartContext } from "../context/CartContext";
 
@@ -6,9 +6,9 @@ import { formatCurrency } from "../utils/formatCurrency";
 
 import CartItem from "../components/CartItem";
 
-import { validateCartAccess } from "../utils/cartValidation";
-
 import Button from "../components/ui/Button";
+
+import PromoPopup from "../components/PromoPopup"; // ✅ NEW
 
 import "./cartpage.css";
 
@@ -18,6 +18,10 @@ export default function CartPage({
 }) {
 
   const { cart } = useContext(CartContext);
+
+  // ✅ POPUP STATE
+  const [showPopup, setShowPopup] =
+    useState(false);
 
   const total = cart.reduce(
     (sum, item) =>
@@ -77,7 +81,8 @@ export default function CartPage({
               <h3>Your cart is empty.</h3>
 
               <p>
-                Add products to continue shopping and help us graduate.
+                Add products to continue shopping
+                and help us graduate.
               </p>
 
             </div>
@@ -132,12 +137,12 @@ export default function CartPage({
           <Button
             onClick={() => {
 
-              const result =
-                validateCartAccess(cart);
+              // ✅ SHOW POPUP INSTEAD OF ALERT
+              if (cart.length === 0) {
 
-              if (!result.isValid) {
-                alert(result.message);
+                setShowPopup(true);
                 return;
+
               }
 
               goToCheckout();
@@ -150,6 +155,12 @@ export default function CartPage({
         </div>
 
       </section>
+
+      {/* ✅ PROMO POPUP */}
+      <PromoPopup
+        isOpen={showPopup}
+        onClose={() => setShowPopup(false)}
+      />
 
     </div>
   );
