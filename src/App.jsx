@@ -1,25 +1,13 @@
 import { useState } from "react";
 
-import HomePage
-  from "./pages/HomePage";
-
-import ProductsPage
-  from "./pages/ProductsPage";
-
-import CartPage
-  from "./pages/CartPage";
-
-import CheckoutPage
-  from "./pages/CheckoutPage";
-
-import OrderSuccessPage
-  from "./pages/OrderSuccessPage";
-
-import ProductDetailsPage
-  from "./pages/ProductDetailsPage";
-
-import ContactPage
-  from "./pages/ContactPage";
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import OrderSuccessPage from "./pages/OrderSuccessPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage"; // ✅ NEW
 
 function App() {
 
@@ -53,6 +41,9 @@ function App() {
   const goToContact = () =>
     setPage("contact");
 
+  const goToAbout = () => // ✅ NEW
+    setPage("about");
+
   return (
 
     <>
@@ -62,17 +53,26 @@ function App() {
 
         <HomePage
 
-          goToProducts={
-            goToProducts
-          }
+          goToHome={goToHome}
+          goToAbout={goToAbout}
+          goToProducts={goToProducts}
+          goToContact={goToContact}
+          goToCart={goToCart}
 
-          goToContact={
-            goToContact
-          }
+        />
 
-          goToCart={
-            goToCart
-          }
+      )}
+
+      {/* ABOUT PAGE */}
+      {page === "about" && (
+
+        <AboutPage
+
+          goToHome={goToHome}
+          goToAbout={goToAbout}
+          goToProducts={goToProducts}
+          goToContact={goToContact}
+          goToCart={goToCart}
 
         />
 
@@ -83,13 +83,9 @@ function App() {
 
         <ProductsPage
 
-          goToHome={
-            goToHome
-          }
+          goToHome={goToHome}
 
-          goToCart={
-            goToCart
-          }
+          goToCart={goToCart}
 
           goToProductDetails={(product) => {
 
@@ -111,13 +107,9 @@ function App() {
 
             product={selectedProduct}
 
-            goToProducts={
-              goToProducts
-            }
+            goToProducts={goToProducts}
 
-            goToCart={
-              goToCart
-            }
+            goToCart={goToCart}
 
             goToProductDetails={(product) => {
 
@@ -136,13 +128,9 @@ function App() {
 
         <CartPage
 
-          goToProducts={
-            goToProducts
-          }
+          goToProducts={goToProducts}
 
-          goToCheckout={
-            goToCheckout
-          }
+          goToCheckout={goToCheckout}
 
         />
 
@@ -152,12 +140,19 @@ function App() {
       {page === "checkout" && (
 
         <CheckoutPage
+
           goToHome={() => setPage("home")}
+
           goToCart={() => setPage("cart")}
+
           goToSuccess={(orderData) => {
+
             setOrder(orderData);
+
             setPage("success");
+
           }}
+
         />
 
       )}
@@ -169,9 +164,7 @@ function App() {
 
           order={order}
 
-          goToHome={
-            goToHome
-          }
+          goToHome={goToHome}
 
         />
 
@@ -182,9 +175,7 @@ function App() {
 
         <ContactPage
 
-          goToHome={
-            goToHome
-          }
+          goToHome={goToHome}
 
         />
 

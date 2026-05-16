@@ -6,10 +6,14 @@ import ProductSlider
 import HomepageReviews
   from "../components/HomepageReviews";
 
+import Header
+  from "../components/layout/Header";
+
 import { reviewsData }
   from "../data/reviews";
 
 import {
+
   FaFacebookF,
   FaInstagram,
   FaWhatsapp,
@@ -21,47 +25,28 @@ import {
 } from "react-icons/fa";
 
 export default function HomePage({
+
   goToProducts,
   goToContact,
+  goToAbout,
+  goToCart,
+
+  cartCount = 0,
+
 }) {
 
   return (
 
     <div className="homepage">
 
-      {/* NAVBAR */}
-      <nav className="navbar">
-
-        <div className="nav-logo">
-          Bella Paprint!
-        </div>
-
-        <div className="nav-links">
-
-          <button
-            className="nav-btn"
-            onClick={() => window.location.hash = "#home"}
-          >
-            Home
-          </button>
-
-          <button
-            className="nav-btn"
-            onClick={goToProducts}
-          >
-            Products
-          </button>
-
-          <button
-            className="nav-btn"
-            onClick={goToContact}
-          >
-            Contact
-          </button>
-
-        </div>
-
-      </nav>
+      {/* HEADER */}
+      <Header
+        goToCart={goToCart}
+        cartCount={cartCount}
+        goToAbout={goToAbout}
+        goToProducts={goToProducts}
+        goToContact={goToContact}
+      />
 
       {/* HERO */}
       <section className="hero-section">
@@ -137,7 +122,9 @@ export default function HomePage({
           </div>
 
           <div className="homepage-slider">
+
             <ProductSlider />
+
           </div>
 
         </div>
@@ -228,43 +215,92 @@ export default function HomePage({
 
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer">
+      {/* CTA SECTION */}
+      <section className="cta-section">
 
-        <div className="footer-socials">
+        <div className="cta-box">
 
-          <a
-            href="https://www.facebook.com/bellapaprint"
-            target="_blank"
-            rel="noreferrer"
+          <h2>
+            Ready To Print Something Beautiful?
+          </h2>
+
+          <p>
+            From school requirements
+            to personalized souvenirs,
+            Bella, Paprint! is ready
+            to bring your ideas to life.
+          </p>
+
+          <button
+            className="shop-btn"
+            onClick={goToProducts}
           >
-            <FaFacebookF />
-          </a>
-
-          <a
-            href="https://www.instagram.com/bella.paprint"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaInstagram />
-          </a>
-
-          <a
-            href="https://wa.me/639000000000"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaWhatsapp />
-          </a>
+            Start Ordering
+          </button>
 
         </div>
 
-        <p>
-          © {new Date().getFullYear()}
-          {" "}
-          Bella Paprint!
-          All rights reserved.
-        </p>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="footer">
+
+        <div className="footer-content">
+
+          {/* BRAND */}
+          <div className="footer-brand">
+
+            <h2>
+              Bella, Paprint!
+            </h2>
+
+            <p>
+              Print na maganda sa presyong pang masa.
+            </p>
+
+          </div>
+
+          {/* SOCIALS */}
+          <div className="footer-socials">
+
+            <a
+              href="https://www.facebook.com/bellapaprint"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaFacebookF />
+            </a>
+
+            <a
+              href="https://www.instagram.com/bella.paprint"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://wa.me/639000000000"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaWhatsapp />
+            </a>
+
+          </div>
+
+        </div>
+
+        <div className="footer-bottom">
+
+          <p>
+            © {new Date().getFullYear()}
+            {" "}
+            Bella, Paprint!
+            All rights reserved.
+          </p>
+
+        </div>
 
       </footer>
 

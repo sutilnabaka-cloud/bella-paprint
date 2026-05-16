@@ -1,13 +1,18 @@
-import { theme } from "../../theme";
-
 import "./header.css";
+
+import logo from "../../images/logo.png";
 
 export default function Header({
 
+  goToHome,
+  goToAbout,
+  goToProducts,
+  goToContact,
   goToCart,
-  cartCount,
 
-  showNav = true, // ✅ NEW
+  cartCount = 0,
+
+  showNav = true,
 
 }) {
 
@@ -18,43 +23,55 @@ export default function Header({
       <div className="header-container">
 
         {/* LOGO */}
-        <div className="header-logo">
+        <div
+          className="header-logo"
+          onClick={goToHome}
+          style={{ cursor: "pointer" }}
+        >
 
-          <span className="logo-icon">
-            🖨️
-          </span>
+          <img
+            src={logo}
+            alt="Bella Paprint Logo"
+            className="logo-image"
+          />
 
-          <div>
+          <div className="logo-text">
 
-            <h2>
-              Bella Paprint!
-            </h2>
+            <h1>
+              Bella, Paprint!
+            </h1>
 
             <p>
-              Premium Printing Services
+              “Print na maganda sa presyong pang masa.”
             </p>
 
           </div>
 
         </div>
 
-        {/* ✅ ONLY SHOW NAV WHEN ENABLED */}
+        {/* NAVIGATION */}
         {showNav && (
+
           <nav className="header-nav">
 
-            <a href="#home">
-              Home
-            </a>
+            <button onClick={goToAbout}>
+              ABOUT
+            </button>
 
-            <a href="#products">
-              Products
-            </a>
+            <button onClick={goToHome}>
+              HOME
+            </button>
 
-            <a href="#contact">
-              Contact
-            </a>
+            <button onClick={goToProducts}>
+              PRODUCTS
+            </button>
+
+            <button onClick={goToContact}>
+              CONTACT
+            </button>
 
           </nav>
+
         )}
 
         {/* CART */}
